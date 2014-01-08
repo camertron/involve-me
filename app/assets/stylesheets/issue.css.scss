@@ -1,0 +1,22 @@
+.issue {
+  display: table-row;
+
+  .avatar {
+    display: table-cell;
+    padding-right: 15px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .contents {
+    display: table-cell;
+    vertical-align: top;
+
+    .title {
+      margin-top: 5px;
+    }
+  }
+}

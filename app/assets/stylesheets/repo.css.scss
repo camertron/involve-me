@@ -1,0 +1,15 @@
+.repo {
+  .header {
+    overflow: hidden;
+
+    .forks, .watchers {
+      float: right;
+      margin-left: 15px;
+    }
+
+    .name {
+      float: left;
+      margin-top: 0;
+    }
+  }
+}
