@@ -1,7 +1,27 @@
-<div style="text-align: center; margin-top: 100px">
-  <h1>Open-Source needs you!</h1>
+<%= javascript_include_tag "index" %>
+<div class="home">
+  <h1 class="header">Open-Source needs you!</h1>
+  <hr>
   <p class="lead">Contribute to open-source projects that need your help.<br> Click the button below for a randomly chosen github issue.</p>
-  <a href="<%= random_issue_path %>" class="btn btn-primary" style="font-size: 22px; padding: 20px 40px; margin-top: 30px">
+  <hr>
+  <div class="center-container clearfix">
+    <div class="center-outer">
+      <div class="center-inner">
+        <p class="language-label pull-left">Show results for</p>
+        <select class="language pull-left">
+          <%= languages.each_pair do |display, val| %>
+            <% if display == default_language %>
+              <option selected="selected" value="<%= val %>"><%= display %></option>
+            <% else %>
+              <option value="<%= val %>"><%= display %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <a data-href="<%= random_issue_path %>" class="btn btn-primary involve" style="font-size: 22px; padding: 20px 40px; margin-top: 30px">
     Involve Me!
   </a>
 </div>

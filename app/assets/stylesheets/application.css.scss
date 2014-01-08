@@ -17,9 +17,19 @@
   margin-bottom: 20px;
 }
 
-.found_issue {
-  .found_repo {
-    margin-bottom: 25px;
+.center-container {
+  overflow: hidden;
+
+  .center-outer {
+    float: right;
+    right: 50%;
+    position: relative;
+
+    .center-inner {
+      float: right;
+      right: -50%;
+      position: relative;
+    }
   }
 }
 

@@ -11,7 +11,7 @@ marked.setOptions({
   smartypants: false
 });
 
-get_random_issue = (callback, options = {}) ->
+get_random_issue = (options = {}, callback) ->
   params =
     sort: "updated"
     per_page: 1
@@ -19,7 +19,10 @@ get_random_issue = (callback, options = {}) ->
     type: "issue"
 
   q = ["state:open"]
-  q.push("language:#{options.language}") if options.language?
+
+  if options.language? and options.language != "Any"
+    q.push("language:#{options.language}")
+
   params.q = q.join(" ")
 
   if debug
@@ -78,6 +81,9 @@ repo_template = '''
       <div class="watchers icon">
         <span class="glyphicon glyphicon-star"></span>{{watchers_count}} {{watchers_plural}}
       </div>
+      <div class="language icon">
+        <span class="glyphicon glyphicon-cog"></span>{{language}}
+      </div>
     </div>
     <p class="description markdown">{{description}}</p>
     <hr>
@@ -123,7 +129,7 @@ $(document).ready ->
   load_new_issue = ->
     show_spinner()
 
-    get_random_issue (issue) ->
+    get_random_issue(get_options(), (issue) ->
       issue_data = issue.data.items[0]
 
       get_repo_for_issue(issue_data, (repo) ->
@@ -140,6 +146,13 @@ $(document).ready ->
         $(".btn.choose").attr("href", issue_data.html_url)
         hide_spinner()
       )
+    )
+
+  get_options = ->
+    parts = window.location.search.substring(1).split("=")
+    results = {}
+    (results[key] = decodeURIComponent(parts[idx + 1]) for key, idx in parts by 2)
+    results
 
   show_spinner = ->
     $(".everything").hide()
