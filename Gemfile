@@ -19,7 +19,7 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.0'
-gem 'twitter_cldr_js', '~> 2.2.0', require: 'twitter_cldr/js'
+# gem 'twitter_cldr_js', '~> 2.2.0', require: 'twitter_cldr/js'
 # gem 'marked-rails'
 
 group :development do

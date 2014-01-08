@@ -96,13 +96,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    twitter_cldr (2.4.2)
-      json
-      tzinfo
-    twitter_cldr_js (2.2.2)
-      json
-      railties (~> 3.1)
-      twitter_cldr (~> 2.4.0)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -119,5 +112,4 @@ DEPENDENCIES
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
   sqlite3
-  twitter_cldr_js (~> 2.2.0)
   uglifier (>= 1.0.3)
