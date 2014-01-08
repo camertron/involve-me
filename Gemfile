@@ -5,9 +5,6 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +20,15 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.0'
 gem 'twitter_cldr_js', '~> 2.2.0', require: 'twitter_cldr/js'
-gem 'marked-rails'
+# gem 'marked-rails'
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
